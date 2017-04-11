@@ -13,6 +13,8 @@ namespace CheeseMVC.Models
 
         public string Name { get; set; }
 
+        IList<Cheese> Cheeses { get; set; }
+
 
     }
 }
