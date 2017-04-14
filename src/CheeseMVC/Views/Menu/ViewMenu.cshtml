@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = Model.Menu.Name;
+}
+@model CheeseMVC.ViewModels.ViewMenuViewModel
+
+<h1>@Model.Menu.Name</h1>
+
+@if (Model.Items.Count == 0)
+{
+    <h1><i>No menu items</i></h1>
+}
+
+
+
+    <ul>
+@foreach (var menu in Model.Items)
+{
+    <li>@menu.Cheese.Name</li>
+}
+    </ul>
+
+
+<p>
+    <a asp-controller="Menu" asp-action="AddItem" asp-route-id="@Model.Menu.ID">Add Menu Item</a>
+</p>

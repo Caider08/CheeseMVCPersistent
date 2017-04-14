@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Add Item to Menu: " + Model.Menu.Name;
+}
+@model CheeseMVC.ViewModels.AddMenuItemViewModel
+
+<h1>@Model.Menu.Name</h1>
+
+<form asp-controller="Menu" asp-action="AddItem" method="post">
+
+    <div class="form group">
+        <label asp-for="cheeseID"></label>
+        <select asp-for="cheeseID" asp-items="Model.Cheeses"></select>
+        <span asp-validation-for="cheeseID"></span>
+    </div>
+ 
+    <input type="hidden" name="MenuID" value="@Model.Menu.ID" />
+    
+
+    <input type="submit" value="Add Menu Item" />
+</form>
